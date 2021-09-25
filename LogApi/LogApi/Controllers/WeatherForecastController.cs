@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,12 @@ namespace LogApi.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly LoggerOptions _options;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IOptions<LoggerOptions> options)
         {
             _logger = logger;
+            _options = options.Value;
         }
 
         [HttpGet]
@@ -35,5 +38,13 @@ namespace LogApi.Controllers
             })
             .ToArray();
         }
+
+        // LOGGING OPTIONS EXAMPLE
+        /*
+            [HttpGet("{key}")]
+            public string GetLoggerOption(int id)
+            {
+                return _options.Destination;
+        }*/
     }
 }
