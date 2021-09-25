@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using LogApi.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace LogApi.Controllers
 {
@@ -18,12 +18,12 @@ namespace LogApi.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
-        private readonly LoggerOptions _options;
+        private readonly ServiceFactory _serviceFactory;
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger, IOptions<LoggerOptions> options)
         {
             _logger = logger;
-            _options = options.Value;
+            _serviceFactory = new ServiceFactory(options.Value.Destination);
         }
 
         [HttpGet]
@@ -39,12 +39,16 @@ namespace LogApi.Controllers
             .ToArray();
         }
 
-        // LOGGING OPTIONS EXAMPLE
-        /*
-            [HttpGet("{key}")]
-            public string GetLoggerOption(int id)
-            {
-                return _options.Destination;
-        }*/
+        // Factory usage example, delete later
+        //[HttpGet("{key}")]
+        //public string AmIJaredNineteenWhoNeverLearnedHowToRead(int id)
+        //{
+        //    IService service = _serviceFactory.GetService();
+
+        //    if (!service.ReadsAllowed())
+        //        return "It's Jared, can't read (something isn't working)";
+
+        //    return "Not Jared, can read (success)";
+        //}
     }
 }
