@@ -1,4 +1,5 @@
-﻿using LogApi.Services;
+﻿using LogApi.Dto;
+using LogApi.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -39,6 +40,21 @@ namespace LogApi.Controllers
             .ToArray();
         }
 
+        [HttpPost]
+        public ActionResult<LogDto> PostLog([FromBody] LogDto request)
+        {
+
+            IService service = _serviceFactory.GetService();
+
+            service.Create(request);
+
+
+            return Ok(); //nameof(PostLog), request);
+        }
+
+
+
+
         // Factory usage example, delete later
         //[HttpGet("{key}")]
         //public string AmIJaredNineteenWhoNeverLearnedHowToRead(int id)
@@ -50,5 +66,7 @@ namespace LogApi.Controllers
 
         //    return "Not Jared, can read (success)";
         //}
+
+
     }
 }
