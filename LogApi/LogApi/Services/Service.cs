@@ -1,24 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using LogApi.Dto;
+using System.Collections.Generic;
 
 namespace LogApi.Services
 {
     public abstract class Service : IService
     {
-        public abstract void Create(object log);
+        public abstract void Create(LogDto log);
 
-        public virtual bool Exists(object log)
+        public virtual bool Exists(LogDto log)
         {
             return false;
         }
 
-        public virtual object Read(int id)
+        public virtual LogDto Read(int id)
         {
             return null;
         }
 
-        public virtual List<object> ReadAll()
+        public virtual List<LogDto> ReadAll()
         {
-            return new List<object>();
+            return null;
         }
 
         public virtual bool ReadsAllowed()

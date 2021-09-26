@@ -1,8 +1,10 @@
-﻿namespace LogApi.Services
+﻿using LogApi.Dto;
+
+namespace LogApi.Services
 {
     public class ExampleService : Service
     {
-        public override void Create(object log) { }
+        public override void Create(LogDto log) { }
 
         public override bool ReadsAllowed()
         {

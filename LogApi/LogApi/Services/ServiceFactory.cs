@@ -16,7 +16,7 @@ namespace LogApi.Services
 
             _services = new Dictionary<string, Func<IService>>()
             {
-                {"console", () => new ExampleService() },
+                {"console", () => new ConsoleService() },
                 {"email", () => new ExampleService() },
                 {"file", () => new ExampleService() },
                 {"sql", () => new ExampleService() }
