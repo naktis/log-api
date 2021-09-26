@@ -1,5 +1,4 @@
-﻿using LogApi.Configuration;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace LogApi.Services
@@ -8,7 +7,6 @@ namespace LogApi.Services
     {
         private readonly string _destination;
         private readonly IDictionary<string, Func<IService>> _services;
-        private readonly OptionsValidator _validator;
 
         public ServiceFactory(string destination)
         {
@@ -21,9 +19,6 @@ namespace LogApi.Services
                 {"file", () => new ExampleService() },
                 {"sql", () => new ExampleService() }
             };
-
-            _validator = new OptionsValidator();
-            _validator.ValidateDestination(_destination, _services.Keys);
         }
 
         public IService GetService()
