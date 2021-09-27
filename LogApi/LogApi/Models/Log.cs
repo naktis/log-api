@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace LogApi.Models
+namespace LogApi
+
 {
     public class Log
     {

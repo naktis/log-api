@@ -9,9 +9,9 @@ namespace LogApi.Services
 
         public bool ReadsAllowed();
 
-        public LogDto Read(int id);
+        public ReadLogDto Read(int id);
 
-        public IEnumerable<LogDto> ReadAll();
+        public IEnumerable<ReadLogDto> ReadAll();
 
         public bool Exists(int id);
     }
