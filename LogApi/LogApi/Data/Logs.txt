@@ -1,1 +1,1 @@
-09/27/2021 14:55:37;string;string;string;;
+11/03/2016 01:09:11;Information;Logging {@Heartbeat} from {Computer};Logging { UserName: "Mike", UserDomainName: "Home" } from "Workstation";{"Heartbeat":{"UserName":"Mike","UserDomainName":"Home"},"Computer":"Workstation","Parameters":[],"Retries":3};
