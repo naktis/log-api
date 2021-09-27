@@ -11,8 +11,8 @@ namespace LogApi.Services
 
         public LogDto Read(int id);
 
-        public List<LogDto> ReadAll();
+        public IEnumerable<LogDto> ReadAll();
 
-        public bool Exists(LogDto log);
+        public bool Exists(int id);
     }
 }

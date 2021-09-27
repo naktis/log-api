@@ -7,7 +7,7 @@ namespace LogApi.Services
     {
         public abstract void Create(LogDto log);
 
-        public virtual bool Exists(LogDto log)
+        public virtual bool Exists(int id)
         {
             return false;
         }
@@ -17,7 +17,7 @@ namespace LogApi.Services
             return null;
         }
 
-        public virtual List<LogDto> ReadAll()
+        public virtual IEnumerable<LogDto> ReadAll()
         {
             return null;
         }
