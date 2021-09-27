@@ -12,12 +12,12 @@ namespace LogApi.Services
             return false;
         }
 
-        public virtual LogDto Read(int id)
+        public virtual ReadLogDto Read(int id)
         {
             return null;
         }
 
-        public virtual IEnumerable<LogDto> ReadAll()
+        public virtual IEnumerable<ReadLogDto> ReadAll()
         {
             return null;
         }
