@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 namespace LogApi
+
 {
     public class Log
     {

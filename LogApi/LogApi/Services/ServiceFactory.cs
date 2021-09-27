@@ -16,7 +16,7 @@ namespace LogApi.Services
             {
                 {"console", () => new ConsoleService() },
                 {"email", () => new SqlService() },
-                {"file", () => new SqlService() },
+                {"file", () => new FileService() },
                 {"sql", () => new SqlService() }
             };
         }
