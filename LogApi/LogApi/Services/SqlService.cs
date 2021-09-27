@@ -29,17 +29,25 @@ namespace LogApi.Services
             return true;
         }
 
-        public override LogDto Read(int id)
+        public override ReadLogDto Read(int id)
         {
             using var db = new LoggingContext();
             var log = db.Logs
-                    .OrderBy(b => b.LogId)
-                    .First();
-            return null;
+                   .Find(id);
+            var readLogDto = new ReadLogDto
+            {
+                LogId = log.LogId,
+                Timestamp = log.Timestamp,
+                Level = log.Level,
+                MessageTemplate = log.MessageTemplate,
+                Renderedmessage = log.Renderedmessage,
+                Properties = JsonSerializer.Deserialize<object>(log.Properties)
+            };
+            return readLogDto;
 
         }
 
-        public override IEnumerable<LogDto> ReadAll()
+        public override IEnumerable<ReadLogDto> ReadAll()
         {
             using var db = new LoggingContext();
             var logs = db.Logs.ToList<Log>();
