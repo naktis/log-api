@@ -10,13 +10,13 @@ API to read and save logs
 
 ### _LogDto_ Schema
 
-```json
+```javascript
 LogDto {
-    timestamp: string($date-time)
-    level: string
-    messageTemplate: string
-    renderedmessage: string
-    properties:{ }
+    timestamp: string($date-time),
+    level: string,
+    messageTemplate: string,
+    renderedmessage: string,
+    properties: { }
 }
 ```
 
