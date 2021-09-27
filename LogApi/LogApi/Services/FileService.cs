@@ -1,5 +1,4 @@
 ﻿using LogApi.Dto;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using LogApi.Models;
@@ -36,16 +35,16 @@ namespace LogApi.Services
             return true;
         }
 
-        public override LogDto Read(int id)
+        public override ReadLogDto Read(int id)
         {
-            return new LogDto { Level = "divine" };
+            return new ReadLogDto { Level = "test" };
         }
 
-        public override IEnumerable<LogDto> ReadAll()
+        public override IEnumerable<ReadLogDto> ReadAll()
         {
-            return new List<LogDto>() {
-                new LogDto { Level = "divine" },
-                new LogDto { Level = "info" }
+            return new List<ReadLogDto>() {
+                new ReadLogDto { Level = "test1" },
+                new ReadLogDto { Level = "test2" }
             };
         }
 
