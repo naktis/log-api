@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using LogApi.Models;
+using System.Text.Json;
 
 namespace LogApi.Services
 {
     public class FileService : Service
     {
-        private string outPutDirectory;
 
         public override void Create(LogDto log)
         {
@@ -19,7 +19,8 @@ namespace LogApi.Services
                 Level = log.Level,
                 MessageTemplate = log.MessageTemplate,
                 Renderedmessage = log.Renderedmessage,
-                Properties = log.Properties
+                Properties = JsonSerializer.Serialize(log.Properties)
+
             };
 
             string row = logas.Timestamp + ";" + logas.Level + ";" + logas.MessageTemplate + ";" + logas.Renderedmessage + ";" + logas.Properties + ";";
