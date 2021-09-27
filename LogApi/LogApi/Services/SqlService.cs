@@ -71,7 +71,16 @@ namespace LogApi.Services
 
         public override bool Exists(int id)
         {
-            return true;
+            using var db = new LoggingContext();
+           
+            if (db.Logs.Find(id) == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }
